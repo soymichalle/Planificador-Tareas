@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Montserrat+Alternates:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+
+    /* * COLORES */
+    --Dark-green: #0A3323;
+    --Moss-green: #839958;
+    --Beige: #F7F4D5;
+    --Rosy-brown: #D3968C;
+    --Midnight-green: #105666;
+
+    /* * FUENTES */
+    --Font-title: 'Jomhuria', serif;
+    --Font-subtitle: 'Kokoro', sans-serif;
+    --Font-body: 'Montserrat Alternates', sans-serif;
+}
+
+body {
+    background-color: var(--Moss-green);
+}
