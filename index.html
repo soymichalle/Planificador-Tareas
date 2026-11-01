@@ -87,67 +87,78 @@
     </header>
 
     <main class="container-fluid">
-
         <div class="row g-3 dashboard-layout">
             <div class="col-12 col-md-1">
 
                 <!-- BARRA LATERAL DE NAVEGACION -->
                 <nav class="sidebar h-100">
                     <div class="contenedor h-100">
+                        <ul class="sidebar-lista">
 
-                        <ul class="sidebar__list">
                             <li>
-                                <span class="material-symbols-outlined">
-                                    home
-                                </span>
+                                <a href="#inicio" class="sidebar-link activo">
+                                    <span class="material-symbols-outlined">
+                                        home
+                                    </span>
+                                </a>
                             </li>
+
                             <li>
-                                <span class="material-symbols-outlined">
-                                    calendar_month
-                                </span>
+                                <a href="#calendario" class="sidebar-link">
+                                    <span class="material-symbols-outlined">
+                                        calendar_month
+                                    </span>
+                                </a>
                             </li>
+
                             <li>
-                                <span class="material-symbols-outlined">
-                                    add_task
-                                </span>
+                                <a href="#tareas" class="sidebar-link">
+                                    <span class="material-symbols-outlined">
+                                        add_task
+                                    </span>
+                                </a>
                             </li>
+
                         </ul>
-
                     </div>
-
                 </nav>
             </div>
 
-            <section class="col-12 col-md-11">
-                <div class="row g-3">
+            <!-- SECCION DE INICIO -->
+            <section id="inicio" class="vista col-12 col-md-11 activa">
+                <div class="row g-3 fila-superior">
 
                     <!-- FRASE DEL DIA -->
                     <div class="col-12 col-md-4">
-                        <div class="contenedor frase-dia h-100">
-                            <h1>Frase del día</h1>
-                            <p>Las oportunidades no aparecen,
-                                las creas.</p>
+                        <div class="contenedor h-100">
+                            <div class="m-2">
+                                <h1>Frase del día</h1>
+                                <p>Las oportunidades no aparecen,
+                                    las creas.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- PLAYLIST DE CANCIONES -->
-                    <div class="contenedor reproductor col-12 col-md-4">
-                        <div>
-                            <iframe src="https://open.spotify.com/embed/playlist/6NumvpVG48KQqEv9wkJFYa" width="100%"
-                                height="152" frameborder="0"
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-                            </iframe>
-                        </div>
-                    </div>
-
+                    <!-- REPRODUCTOR SPOTIFY -->
                     <div class="col-12 col-md-4">
+                        <div class="reproductor h-100">
+
+                            <iframe data-testid="embed-iframe" style="border-radius:12px"
+                                src="https://open.spotify.com/embed/playlist/6NumvpVG48KQqEv9wkJFYa?utm_source=generator&theme=0&si=8d6d9e52d7624711"
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy"></iframe>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 text-center">
 
                         <!-- HOY Y % AVANCE -->
-                        <div class="contenedor col-12">
-                            <div class="row">
+                        <div class="contenedor col-12 h-100">
+                            <div class="row g-3">
 
                                 <!-- FECHA -->
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-6 p-2">
                                     <span>HOY</span>
                                     <h1>25 NOV</h1>
                                     <span>- jueves -</span>
@@ -173,69 +184,194 @@
                     </div>
                 </div>
 
-                <!-- RESUMEN DE TAREAS PENDIENTES -->
-                <div class="contenedor col-12">
+                <div class="row g-3">
 
-                    <h1>Resumen de Tareas Pendientes</h1>
+                    <!-- RESUMEN DE TAREAS PENDIENTES -->
+                    <div class="col-12 col-md-8">
+                        <div class="contenedor h-100">
+                            <div class="m-2">
 
-                    <!-- FILTROS -->
-                    <div class="d-flex flex-wrap gap-4 mb-3">
+                                <h1>Resumen de Tareas Pendientes</h1>
 
-                        <div class="d-flex align-items-center gap-2">
-                            <input type="radio" id="diaria" name="frecuencia" class="radio-personalizado">
-                            <label for="diaria">DIARIA</label>
-                        </div>
+                                <!-- FILTROS -->
+                                <div class="d-flex flex-wrap gap-4 mb-3">
 
-                        <div class="d-flex align-items-center gap-2">
-                            <input type="radio" id="semanal" name="frecuencia" class="radio-personalizado">
-                            <label for="semanal">SEMANAL</label>
-                        </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <input type="radio" id="diaria" name="frecuencia" class="radio-personalizado">
+                                        <label for="diaria">DIARIA</label>
+                                    </div>
 
-                        <div class="d-flex align-items-center gap-2">
-                            <input type="radio" id="mensual" name="frecuencia" class="radio-personalizado">
-                            <label for="mensual">MENSUAL</label>
-                        </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <input type="radio" id="semanal" name="frecuencia" class="radio-personalizado">
+                                        <label for="semanal">SEMANAL</label>
+                                    </div>
 
-                    </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <input type="radio" id="mensual" name="frecuencia" class="radio-personalizado">
+                                        <label for="mensual">MENSUAL</label>
+                                    </div>
 
-                    <!-- CONTENIDO -->
-                    <div class="row g-3">
+                                </div>
 
-                        <div class="col-12 col-md-8">
-                            <div class="contenedor h-100">
-                                <!-- LISTADO DE TAREAS -->
+                                <!-- CONTENIDO -->
+                                <div class="row g-3">
+
+                                    <div class="col-12 col-md-8">
+                                        <div class="contenedor h-100">
+                                            <!-- LISTADO DE TAREAS -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-4 d-flex flex-column gap-3">
+
+                                        <button type="button" class="boton-beige">
+                                            <span class="material-symbols-outlined">list</span>
+                                            Ver listado completo
+                                        </button>
+
+                                        <button type="button" class="boton-beige">
+                                            <span class="material-symbols-outlined">category</span>
+                                            Añadir categoría
+                                        </button>
+
+                                        <button type="button" class="boton-rosa">
+                                            <span class="material-symbols-outlined">add_circle</span>
+                                            Añadir nueva tarea
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-12 col-md-4 d-flex flex-column gap-3">
+                    <!-- CALENDARIO -->
+                    <div class="col-12 col-md-4">
+                        <div class="contenedor calendario">
 
-                            <button type="button" class="boton-beige">
-                                <span class="material-symbols-outlined">list</span>
-                                Ver listado completo
-                            </button>
+                            <div class="calendario-encabezado">
+                                <span class="material-symbols-outlined">chevron_left</span>
+                                <h2>Noviembre 2026</h2>
+                                <span class="material-symbols-outlined">chevron_right</span>
+                            </div>
 
-                            <button type="button" class="boton-beige">
-                                <span class="material-symbols-outlined">category</span>
-                                Añadir categoría
-                            </button>
+                            <div class="calendario-grid">
 
-                            <button type="button" class="boton-rosa">
-                                <span class="material-symbols-outlined">add_circle</span>
-                                Añadir nueva tarea
-                            </button>
-                        </div>
+                                <!-- DÍAS DE LA SEMANA -->
+                                <div class="dia-semana">LUN</div>
+                                <div class="dia-semana">MAR</div>
+                                <div class="dia-semana">MIÉ</div>
+                                <div class="dia-semana">JUE</div>
+                                <div class="dia-semana">VIE</div>
+                                <div class="dia-semana">SÁB</div>
+                                <div class="dia-semana">DOM</div>
 
-                        <!-- CALENDARIO -->
-                        <div class="col-12 col-md-3">
-                            <div class="contenedor h-100">
-                                <span>CALENDARIO</span>
+                                <!-- DÍAS DEL MES -->
+                                <div class="dia-vacio"></div>
+                                <div class="dia-vacio"></div>
+                                <div class="dia-vacio"></div>
+                                <div class="dia-vacio"></div>
+                                <div class="dia-vacio"></div>
+                                <div class="dia">1</div>
+
+                                <div class="dia">2</div>
+                                <div class="dia">3</div>
+                                <div class="dia">4</div>
+                                <div class="dia">5</div>
+                                <div class="dia">6</div>
+                                <div class="dia">7</div>
+                                <div class="dia">8</div>
+
+                                <div class="dia">9</div>
+                                <div class="dia">10</div>
+                                <div class="dia">11</div>
+                                <div class="dia">12</div>
+                                <div class="dia">13</div>
+                                <div class="dia">14</div>
+                                <div class="dia">15</div>
+
+                                <div class="dia">16</div>
+                                <div class="dia">17</div>
+                                <div class="dia">18</div>
+                                <div class="dia">19</div>
+                                <div class="dia">20</div>
+                                <div class="dia">21</div>
+                                <div class="dia">22</div>
+
+                                <div class="dia">23</div>
+                                <div class="dia">24</div>
+                                <div class="dia dia-actual">25</div>
+                                <div class="dia">26</div>
+                                <div class="dia">27</div>
+                                <div class="dia">28</div>
+                                <div class="dia">29</div>
+
+                                <div class="dia">30</div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
-<!-- NECESITO UN DESCANSITO D: -->
+
+            <!-- SECCION DE TAREAS -->
+            <section id="tareas" class="vista col-12 col-md-11">
+
+                <div class="contenedor">
+                    <h1>Mis tareas</h1>
+
+                    <div class="row g-3">
+                        <div class="col-12 col-md-4">
+                            <span>12</span>
+                            <p>TAREAS COMPLETADAS</p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <span>12</span>
+                            <p>TAREAS PENDIENTES</p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <span>12</span>
+                            <p>TAREAS VENCIDAS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contenedor">
+                    <div class="row">
+                        
+                        <div class="col-12 col-md-6">
+                            <h1>Todas las tareas</h1>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <h1>diarias - semanales - mensuales</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <ul>
+                        <!-- AQUI SE GENERA LISTADO DE LAS TAREAS -->
+                    </ul>
+
+                    <div class="row">
+
+                        <div class="col-12 col-md-6">
+                            <span>Gestiona tus actividades</span>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <button type="button" class="boton-rosa">
+                                <span class="material-symbols-outlined">add_circle</span>
+                                Añadir nueva tarea
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECCION DE CALENDARIO -->
+            <section id="calendario" class="vista col-12 col-md-11">
+
+            </section>
     </main>
 
     <footer class="footer">
@@ -245,9 +381,11 @@
         </p>
     </footer>
 
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SCRIPTS DE LA SPA -->
+    <script src="js/inicio.js"></script>
 
 </body>
 

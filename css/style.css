@@ -1,11 +1,12 @@
+/* * LLAMAMOS LETRITAS */
 @import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Montserrat+Alternates:wght@400;500;600;700&display=swap');
 
+/* * CONFIGURACIÓN GENERAL */
 * {
     box-sizing: border-box;
 }
 
 :root {
-
     /* * COLORES */
     --Dark-green: #0A3323;
     --Moss-green: #839958;
@@ -19,8 +20,9 @@
     --Font-body: 'Montserrat Alternates', sans-serif;
 }
 
+/* * ICONOS*/
 .material-symbols-outlined {
-    font-size: 24px;
+    font-size: 1.5rem;
     vertical-align: middle;
     color: var(--Rosy-brown);
     font-variation-settings:
@@ -30,31 +32,61 @@
         'opsz' 24;
 }
 
+/* * ESTRUCTURA PRINCIPAL */
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background-color: var(--Moss-green);
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.5rem;
+    font-family: var(--Font-subtitle);
+    color: var(--Rosy-brown);
+}
+
+main {
+    flex: 1;
+    min-height: 0;
+    padding: 0.625rem;
+}
+
+.dashboard-layout {
+    align-items: stretch;
+    min-height: 0;
+}
+
+.row {
+    --bs-gutter-x: 0.9375rem;
+    --bs-gutter-y: 0.9375rem;
+}
+
+/* * HEADER */
 header {
-    padding: 10px;
-    margin-bottom: 10px;
-    min-height: 65px;
+    min-height: 4.0625rem;
     align-items: center;
 }
 
 header .contenedor,
 header .identidad-proyecto {
-    height: 64px;
+    height: 4rem;
 }
 
-/* Buscador */
 header .contenedor form {
     height: 100%;
     align-items: center;
 }
 
-/* Usuario */
 header .contenedor .d-flex {
     min-height: 100%;
     align-items: center;
 }
 
-/* Evitar que los textos aumenten la altura */
 header p,
 header small {
     line-height: 1.2;
@@ -65,36 +97,8 @@ header small {
     display: block;
 }
 
-html,
-body {
-    min-height: 100%;
-}
-
-main {
-    flex: 1;
-    padding: 10px;
-
-    min-height: calc(100vh - 130px);
-}
-
-body {
-    background-color: var(--Moss-green);
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-}
-
-/* DISTRIBUCIÓN DEL DASHBOARD */
-
-.dashboard-layout {
-    align-items: stretch;
-    min-height: calc(100vh - 180px);
-}
-
-/* SIDEBAR */
-
-.dashboard-layout > aside {
+/* * SIDEBAR */
+.dashboard-layout > .sidebar-col {
     display: flex;
 }
 
@@ -106,20 +110,39 @@ body {
 .sidebar .contenedor {
     width: 100%;
     height: 100%;
+    padding: 0.75rem 0.3125rem;
 }
 
+.sidebar-lista {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-lista li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar-lista .material-symbols-outlined {
+    font-size: 1.4375rem;
+}
+
+/* * TIPOGRAFÍA */
 h1,
 h2,
 h3 {
     font-family: var(--Font-title);
-    letter-spacing: 2px;
+    letter-spacing: 0.125rem;
     color: var(--Dark-green);
-}
-
-body,
-p {
-    font-family: var(--Font-subtitle);
-    color: var(--Rosy-brown);
 }
 
 input {
@@ -127,69 +150,61 @@ input {
     color: var(--Rosy-brown);
 }
 
-/* Distribución general */
-body {
-    padding: 20px;
+/* Ocultar todas las vistas */
+.vista {
+    display: none;
 }
 
-.row {
-    --bs-gutter-x: 15px;
-    --bs-gutter-y: 15px;
+/* Mostrar únicamente la vista activa */
+.vista.activa {
+    display: block;
 }
 
-/* Clases personalizadas */
+/* * CONTENEDORES */
 .contenedor {
-
     background: var(--Beige);
 
-    padding: 10px;
+    padding: 0.625rem;
     margin: 0;
 
     border: 1px solid rgba(255, 250, 244, 0.35);
-    border-radius: 24px;
+    border-radius: 1.5rem;
 
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.3125rem 1.125rem rgba(0, 0, 0, 0.15);
 
     position: relative;
     overflow: hidden;
 }
 
-.boton-rosa {
-    background-color: var(--Rosy-brown);
-    color: var(--Beige);
-    border-radius: 20px;
+/* * BOTONES */
+.boton-rosa,
+.boton-beige {
+    border-radius: 1.25rem;
     border: none;
+
     font-family: var(--Font-body);
     text-decoration: none;
 
-    /* Profundidad y reflejos */
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
-
+    box-shadow: 0 0.3125rem 1.125rem rgba(0, 0, 0, 0.15);
 }
 
-.boton-rosa:hover {
-    transform: scale(1.03);
+.boton-rosa {
+    background-color: var(--Rosy-brown);
+    color: var(--Beige);
 }
 
 .boton-beige {
     background-color: var(--Beige);
     color: var(--Rosy-brown);
-    border-radius: 20px;
-    border: none;
-    font-family: var(--Font-body);
-    text-decoration: none;
-
-    /* Profundidad y reflejos */
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
-
 }
 
+.boton-rosa:hover,
 .boton-beige:hover {
     transform: scale(1.03);
 }
 
 .form-control {
-    border-radius: 20px;
+    border-radius: 1.25rem;
 }
 
 .boton-rosa .icono {
@@ -200,14 +215,15 @@ body {
     color: var(--Rosy-brown);
 }
 
+/* * RADIO BUTTONS */
 .radio-personalizado {
     appearance: none;
     -webkit-appearance: none;
 
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 
-    border: 2px solid var(--Dark-green);
+    border: 0.125rem solid var(--Dark-green);
     border-radius: 50%;
 
     background-color: transparent;
@@ -217,34 +233,35 @@ body {
     place-content: center;
 }
 
-/* Cuando está seleccionado */
 .radio-personalizado:checked {
     border-color: var(--Rosy-brown);
 }
 
 .radio-personalizado:checked::before {
     content: "";
-    width: 10px;
-    height: 10px;
+
+    width: 0.625rem;
+    height: 0.625rem;
 
     border-radius: 50%;
     background-color: var(--Rosy-brown);
 }
 
 .radio-personalizado:focus-visible {
-    outline: 2px solid var(--Midnight-green);
-    outline-offset: 3px;
+    outline: 0.125rem solid var(--Midnight-green);
+    outline-offset: 0.1875rem;
 }
 
+/* * CHECKBOXES */
 .checkbox-personalizado {
     appearance: none;
     -webkit-appearance: none;
 
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 
-    border: 2px solid var(--Dark-green);
-    border-radius: 5px;
+    border: 0.125rem solid var(--Dark-green);
+    border-radius: 0.3125rem;
 
     background-color: transparent;
     cursor: pointer;
@@ -253,37 +270,118 @@ body {
     place-content: center;
 }
 
-/* Cuando está seleccionado */
 .checkbox-personalizado:checked {
     background-color: var(--Rosy-brown);
     border-color: var(--Rosy-brown);
 }
 
-/* Icono de verificación */
 .checkbox-personalizado:checked::before {
     content: "✓";
+
     color: var(--Beige);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: bold;
 }
 
 .checkbox-personalizado:focus-visible {
-    outline: 2px solid var(--Midnight-green);
-    outline-offset: 3px;
+    outline: 0.125rem solid var(--Midnight-green);
+    outline-offset: 0.1875rem;
 }
+
+/* * LISTAS */
 
 ul {
     list-style: none;
     padding: 0;
 }
 
-.footer {
-    text-align: center;
-    padding: 18px 10px;
-    margin-top: 25px;
+.fila-superior {
+    align-items: stretch;
+    padding-bottom: 1rem;
+}
+
+.fila-superior > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* * REPRODUCTOR SPOTIFY */
+.reproductor {
+    width: 100%;
+    flex: 1;
+
+    display: flex;
+    min-height: 0;
+}
+
+.reproductor iframe {
+    width: 100%;
+    height: 100%;
+
+    min-height: 152px;
+
+    border: none;
+    border-radius: 1rem;
+}
+
+/* * CALENDARIO */
+.calendario-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 0.75rem;
+}
+
+.calendario-encabezado h2 {
+    font-family: var(--Font-body);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.1875rem;
+}
+
+.dia-semana,
+.dia,
+.dia-vacio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 2.1875rem;
+}
+
+.dia-semana {
+    font-size: 0.625rem;
+    color: var(--Rosy-brown);
+    font-weight: 600;
+}
+
+.dia {
+    background-color: white;
+
+    border: 1px solid rgba(131, 153, 88, 0.2);
+    border-radius: 0.3125rem;
 
     font-family: var(--Font-body);
-    font-size: 12px;
+    font-size: 0.75rem;
+    color: var(--Dark-green);
+}
+
+.dia-actual {
+    background-color: var(--Rosy-brown);
+    color: var(--Beige);
+    font-weight: bold;
+}
+
+/* * FOOTER */
+.footer {
+    text-align: center;
+    font-family: var(--Font-body);
 }
 
 .footer p {
