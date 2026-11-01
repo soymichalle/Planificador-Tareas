@@ -21,28 +21,30 @@
 
 <body>
     <!-- HEADER -->
-    <header>
+    <header class="container-fluid">
         <div class="row align-items-center g-3">
 
             <!-- NOMBRE DEL PROYECTO -->
             <!-- LO AÑADÍ DE MÁS A LA PLANTILLA PORQUE A ESTA HORA QUEDE PROCESANDO, NO SABIA YA QUE ESTABA HACIENDO -->
             <!-- MEJOR ME VOY A HACER LA MIMICION -->
-            <div class="contenedor col-12 col-md-3">
-                <div class="identidad-proyecto d-flex align-items-center gap-2">
+            <div class="col-12 col-md-2">
+                <div class="contenedor">
+                    <div class="identidad-proyecto d-flex align-items-center gap-2">
 
-                    <span class="material-symbols-outlined">
-                        calendar_month
-                    </span>
+                        <span class="material-symbols-outlined">
+                            calendar_month
+                        </span>
 
-                    <div>
-                        <h2 class="mb-0">Mi Planificador</h2>
+                        <div>
+                            <h2 class="mb-0">Mi Planificador</h2>
+                        </div>
                     </div>
 
                 </div>
             </div>
 
             <!-- BUSCADOR -->
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-6">
                 <div class="contenedor">
                     <form class="d-flex gap-2">
                         <span class="material-symbols-outlined">
@@ -62,7 +64,6 @@
             <!-- USUARIO Y MODO -->
             <div class="col-12 col-md-4">
                 <div class="contenedor">
-
                     <div class="d-flex align-items-center gap-3">
 
                         <span class="material-symbols-outlined">
@@ -85,42 +86,91 @@
         </div>
     </header>
 
-    <main>
+    <main class="container-fluid">
 
-        <div class="row">
+        <div class="row g-3 dashboard-layout">
             <div class="col-12 col-md-1">
 
                 <!-- BARRA LATERAL DE NAVEGACION -->
-                <div class="contenedor h-100">
+                <nav class="sidebar h-100">
+                    <div class="contenedor h-100">
 
-                    <span class="material-symbols-outlined">
-                        home
-                    </span>
-                    <span class="material-symbols-outlined">
-                        calendar_month
-                    </span>
-                    <span class="material-symbols-outlined">
-                        add_task
-                    </span>
+                        <ul class="sidebar__list">
+                            <li>
+                                <span class="material-symbols-outlined">
+                                    home
+                                </span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">
+                                    calendar_month
+                                </span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">
+                                    add_task
+                                </span>
+                            </li>
+                        </ul>
 
-                </div>
+                    </div>
 
+                </nav>
             </div>
 
-            <div class="col-12 col-md-7">
-                <div class="row">
+            <section class="col-12 col-md-11">
+                <div class="row g-3">
 
                     <!-- FRASE DEL DIA -->
-                    <div class="contenedor col-12 col-md-6">
-                        <h1>Frase del día</h1>
-                        <p>Las oportunidades no aparecen, las creas.</p>
+                    <div class="col-12 col-md-4">
+                        <div class="contenedor frase-dia h-100">
+                            <h1>Frase del día</h1>
+                            <p>Las oportunidades no aparecen,
+                                las creas.</p>
+                        </div>
                     </div>
 
                     <!-- PLAYLIST DE CANCIONES -->
-                    <div class="contenedor col-12 col-md-4">
-                        <span>MUSIQUITA</span>
+                    <div class="contenedor reproductor col-12 col-md-4">
+                        <div>
+                            <iframe src="https://open.spotify.com/embed/playlist/6NumvpVG48KQqEv9wkJFYa" width="100%"
+                                height="152" frameborder="0"
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                            </iframe>
+                        </div>
                     </div>
 
+                    <div class="col-12 col-md-4">
+
+                        <!-- HOY Y % AVANCE -->
+                        <div class="contenedor col-12">
+                            <div class="row">
+
+                                <!-- FECHA -->
+                                <div class="col-12 col-md-6">
+                                    <span>HOY</span>
+                                    <h1>25 NOV</h1>
+                                    <span>- jueves -</span>
+                                </div>
+
+                                <!-- AVANCE -->
+                                <div class="col-12 col-md-6">
+                                    <h1>Avance</h1>
+                                    <span>del día</span>
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <span>80%</span>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <!-- circulo de porcentaje de avance con color que corresponde -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- RESUMEN DE TAREAS PENDIENTES -->
@@ -174,47 +224,18 @@
                                 Añadir nueva tarea
                             </button>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-12 col-md-4">
-
-                <!-- HOY Y % AVANCE -->
-                <div class="contenedor col-12">
-                    <div class="row">
-
-                        <!-- FECHA -->
-                        <div class="col-12 col-md-6">
-                            <span>HOY</span>
-                            <h1>25 NOV</h1>
-                            <span>- jueves -</span>
-                        </div>
-
-                        <!-- AVANCE -->
-                        <div class="col-12 col-md-6">
-                            <h1>Avance</h1>
-                            <span>del día</span>
-
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <span>80%</span>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <!-- circulo de porcentaje de avance con color que corresponde -->
-                                </div>
+                        <!-- CALENDARIO -->
+                        <div class="col-12 col-md-3">
+                            <div class="contenedor h-100">
+                                <span>CALENDARIO</span>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
-                <!-- CALENDARIO -->
-                <div class="contenedor col-12">
-                    <span>CALENDARIO</span>
-                </div>
-            </div>
+            </section>
         </div>
+<!-- NECESITO UN DESCANSITO D: -->
     </main>
 
     <footer class="footer">

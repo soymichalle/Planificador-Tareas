@@ -30,15 +30,82 @@
         'opsz' 24;
 }
 
-header,
-main {
+header {
     padding: 10px;
+    margin-bottom: 10px;
+    min-height: 65px;
+    align-items: center;
+}
+
+header .contenedor,
+header .identidad-proyecto {
+    height: 64px;
+}
+
+/* Buscador */
+header .contenedor form {
+    height: 100%;
+    align-items: center;
+}
+
+/* Usuario */
+header .contenedor .d-flex {
+    min-height: 100%;
+    align-items: center;
+}
+
+/* Evitar que los textos aumenten la altura */
+header p,
+header small {
+    line-height: 1.2;
+    margin: 0;
+}
+
+header small {
+    display: block;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+main {
+    flex: 1;
+    padding: 10px;
+
+    min-height: calc(100vh - 130px);
 }
 
 body {
     background-color: var(--Moss-green);
+    min-height: 100vh;
+
     display: flex;
     flex-direction: column;
+}
+
+/* DISTRIBUCIÓN DEL DASHBOARD */
+
+.dashboard-layout {
+    align-items: stretch;
+    min-height: calc(100vh - 180px);
+}
+
+/* SIDEBAR */
+
+.dashboard-layout > aside {
+    display: flex;
+}
+
+.sidebar {
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar .contenedor {
+    width: 100%;
+    height: 100%;
 }
 
 h1,
@@ -205,15 +272,16 @@ body {
     outline-offset: 3px;
 }
 
-li {
-    appearance: none;
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-.footer {  
+.footer {
     text-align: center;
     padding: 18px 10px;
     margin-top: 25px;
-    
+
     font-family: var(--Font-body);
     font-size: 12px;
 }
