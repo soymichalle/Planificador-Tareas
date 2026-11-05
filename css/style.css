@@ -378,6 +378,29 @@ ul {
     font-weight: bold;
 }
 
+/* * CARDS DE TAREAS */
+
+.card.contenedor {
+    border: none;
+    color: var(--Dark-green);
+    font-family: var(--Font-body);
+    transition: transform 0.3s ease;
+}
+
+.card.contenedor:hover {
+    transform: translateY(-4px);
+}
+
+.card.contenedor .card-title {
+    font-family: var(--Font-body);
+    font-weight: 700;
+    color: var(--Dark-green);
+}
+
+.card.contenedor .card-text {
+    color: var(--Midnight-green);
+}
+
 /* * FOOTER */
 .footer {
     text-align: center;
