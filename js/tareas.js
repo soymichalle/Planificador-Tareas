@@ -2,7 +2,7 @@ import { Tarea } from "./clases/Tarea.js";
 import { GestorTareas } from "./clases/GestorTareas.js";
 
 // * Instanciamos nuestro gestor
-const gestor = new GestorTareas();
+export const gestor = new GestorTareas();
 
 // * Datos de prueba
 const tarea1 = new Tarea(
@@ -32,7 +32,7 @@ gestor.agregarTarea(tarea2);
 const contenedor = document.getElementById("contenedor-tareas");
 
 // * Renderizar cards
-function renderizarTareas() {
+export function renderizarTareas() {
 
     const tareas = gestor.obtenerTareas();
 

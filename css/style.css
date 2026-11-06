@@ -215,6 +215,14 @@ input {
     color: var(--Rosy-brown);
 }
 
+.boton-rosa .material-symbols-outlined {
+    color: var(--Beige);
+}
+
+.boton-beige .material-symbols-outlined {
+    color: var(--Rosy-brown);
+}
+
 /* * RADIO BUTTONS */
 .radio-personalizado {
     appearance: none;
@@ -379,7 +387,6 @@ ul {
 }
 
 /* * CARDS DE TAREAS */
-
 .card.contenedor {
     border: none;
     color: var(--Dark-green);
@@ -411,4 +418,17 @@ ul {
     font-family: var(--Font-body);
     margin: 0;
     color: var(--Dark-green);
+}
+
+/* MODAL */
+.modal-content .modal-title {
+    font-family: var(--Font-title);
+    font-size: 3rem;
+}
+
+.modal-content .form-control,
+.modal-content .form-select {
+    font-family: var(--Font-body);
+    font-size: 0.8rem;
+    border-radius: 1rem;
 }
