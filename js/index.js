@@ -1,3 +1,16 @@
+// * Se importan las clases y módulos necesarios
+import "./views/taskView.js";
+import "./views/calendarView.js"
+import "./taskNew.js";
+
+import { cargarCategorias } from "./data/categories.js";
+//import { cargarEstados } from "./estados.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    cargarCategorias();
+    //cargarEstados();
+});
+
 // * Lógica próximamente
 
 // * Se definen variables y constantes

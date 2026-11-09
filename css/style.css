@@ -297,7 +297,6 @@ input {
 }
 
 /* * LISTAS */
-
 ul {
     list-style: none;
     padding: 0;
@@ -408,6 +407,21 @@ ul {
     color: var(--Midnight-green);
 }
 
+/* * TAREAS */
+.tarea-completada{
+    opacity: 0.9;
+    color: var(--Moss-green);
+}
+
+
+.texto-completada {
+    text-decoration: line-through;
+}
+
+.tarea-vencida {
+    border: 2px solid var(--Rosy-brown);
+}
+
 /* * FOOTER */
 .footer {
     text-align: center;
@@ -420,7 +434,7 @@ ul {
     color: var(--Dark-green);
 }
 
-/* MODAL */
+/* * MODAL */
 .modal-content .modal-title {
     font-family: var(--Font-title);
     font-size: 3rem;

@@ -1,6 +1,6 @@
 // * Se importan las clases y módulos necesarios
-import { Tarea } from "./clases/Tarea.js";
-import { gestor, renderizarTareas } from "./tareas.js";
+import { Task } from "./clases/task.js";
+import { gestor, renderizarTareas } from "./views/taskView.js";
 
 // * Se obtiene el formulario
 const formulario = document.querySelector("#formulario-tarea");
@@ -70,7 +70,7 @@ formulario.addEventListener("submit", (evento) => {
     alerta.classList.add("d-none");
 
     // * Se crea una nueva instancia de Tarea
-    const tarea = new Tarea(
+    const tarea = new Task(
         Date.now(),
         datosTarea.titulo,
         datosTarea.descripcion,

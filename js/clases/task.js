@@ -1,5 +1,5 @@
 // * Se crea la clase de tarea
-export class Tarea {
+export class Task {
 
     constructor(id, titulo, descripcion, categoria,
                 fecha, frecuencia, estado = "pendiente") {

@@ -1,8 +1,8 @@
 // * Se importan las clases necesarias
-import { Tarea } from "./Tarea.js";
+import { Task } from "./task.js";
 
 // * Se crea la clase de gestor de tareas
-export class GestorTareas {
+export class taskManager {
 
     // * Se define el constructor de la clase
     constructor() {
@@ -42,7 +42,9 @@ export class GestorTareas {
         );
 
         if (tarea) {
-            tarea.estado = "completada";
+            tarea.estado = tarea.estado === "completada"
+            ? (tarea.estaVencida() ? "vencida" : "pendiente")
+            : "completada";
         }
 
     }
