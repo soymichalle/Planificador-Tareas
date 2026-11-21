@@ -411,9 +411,6 @@
 
                     <form id="formulario-tarea" novalidate>
 
-                        <div id="alerta-validacion" class="alert alert-danger d-none" role="alert">
-                        </div>
-
                         <div class="mb-2">
                             <input type="text" class="form-control" id="titulo-tarea" placeholder="Nombre de la tarea"
                                 required>
@@ -458,7 +455,7 @@
                         Cancelar
                     </button>
 
-                    <button type="submit" form="formulario-tarea" class="boton-rosa">
+                    <button type="submit" form="formulario-tarea" class="boton-rosa" data-bs-dismiss="modal" data-bs-dismiss="modal">
                         Guardar
                     </button>
                 </div>
@@ -472,6 +469,8 @@
 
     <!-- SCRIPT ANCLA PARA LA SPA -->
     <script type="module" src="js/index.js"></script>
+    <!-- SWEET ALERT JIJIJIJI -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

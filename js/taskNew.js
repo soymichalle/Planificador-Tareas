@@ -1,5 +1,5 @@
 // * Se importan las clases y módulos necesarios
-import { Task } from "./clases/task.js";
+import { notificarExito, notificarError } from "./alertas.js";
 import { gestor, renderizarTareas } from "./views/taskView.js";
 
 // * Se obtiene el formulario
@@ -11,33 +11,27 @@ const alerta = document.querySelector("#alerta-validacion");
 // * Función para validar los campos del formulario
 function validFormFieldInput(data) {
 
-    const errores = [];
 
     if (!data.titulo.trim()) {
-        errores.push("El nombre de la tarea es obligatorio.");
+        return notificarError("Oh-uh! Parece que no has digitado el titulo. Por favor, verifica");
     }
-
-    if (!data.descripcion.trim()) {
-        errores.push("La descripción es obligatoria.");
-    }
-
+    
     if (!data.fecha) {
-        errores.push("Debes seleccionar una fecha.");
+        return notificarError("Oh-uh! Parece que no has digitado la fecha. Por favor, verifica");
     }
-
+    
     if (!data.estado) {
-        errores.push("Debes seleccionar un estado.");
+        return notificarError("Oh-uh! Parece que no has seleccionado un estado. Por favor, verifica");
     }
-
+    
     if (!data.categoria) {
-        errores.push("Debes seleccionar una categoría.");
+        return notificarError("Oh-uh! Parece que no has seleccionado una categoria. Por favor, verifica");
     }
-
+    
     if (!data.frecuencia) {
-        errores.push("Debes seleccionar una frecuencia.");
+        return notificarError("Oh-uh! Parece que no has seleccionado una frecuencia. Por favor, verifica");
     }
 
-    return errores;
 }
 
 // * Se agrega un evento al formulario para capturar los datos y validarlos
@@ -56,40 +50,25 @@ formulario.addEventListener("submit", (evento) => {
     };
 
     // * Se validan los datos
-    const errores = validFormFieldInput(datosTarea);
+    const formularioValido = validFormFieldInput(datosTarea);
 
-    if (errores.length > 0) {
-
-        alerta.innerHTML = errores.join("<br>");
-        alerta.classList.remove("d-none");
-
-        return;
-    }
-
-    // * Si los datos son correctos
-    alerta.classList.add("d-none");
-
-    // * Se crea una nueva instancia de Tarea
-    const tarea = new Task(
-        Date.now(),
-        datosTarea.titulo,
-        datosTarea.descripcion,
-        datosTarea.categoria,
-        datosTarea.fecha,
-        datosTarea.frecuencia,
-        datosTarea.estado
-    );
-
+    if (!formularioValido) {
+    return;
+}
     // * Se agrega la tarea al gestor
-    gestor.agregarTarea(tarea);
+    const tarea = gestor.agregarTarea(datosTarea);
 
     // * Se comprueba que la tarea fue guardada
     console.log("Tarea creada correctamente:", tarea);
     console.log("Listado de tareas:", gestor.obtenerTareas());
+
+    // * Mensaje de exito
+    notificarExito("Se ha guardado la nueva tarea correctamente");
 
     // * Se actualizan las tarjetas
     renderizarTareas();
 
     // * Se limpia el formulario
     formulario.reset();
+
 });

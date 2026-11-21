@@ -98,7 +98,7 @@ header small {
 }
 
 /* * SIDEBAR */
-.dashboard-layout > .sidebar-col {
+.dashboard-layout>.sidebar-col {
     display: flex;
 }
 
@@ -307,7 +307,7 @@ ul {
     padding-bottom: 1rem;
 }
 
-.fila-superior > div {
+.fila-superior>div {
     display: flex;
     flex-direction: column;
 }
@@ -408,7 +408,7 @@ ul {
 }
 
 /* * TAREAS */
-.tarea-completada{
+.tarea-completada {
     opacity: 0.9;
     color: var(--Moss-green);
 }
@@ -445,4 +445,30 @@ ul {
     font-family: var(--Font-body);
     font-size: 0.8rem;
     border-radius: 1rem;
+}
+
+/* AJUSTES DE ALERTAS PARA SWEET ALERT */
+
+.alerta-pequena {
+    font-family: var(--Font-body) !important;
+    font-size: small;
+    background-color: var(--Beige) !important;
+    color: var(--Dark-green) !important;
+    border: 1px solid var(--Rosy-brown) !important;
+    border-radius: 1.5rem !important;
+}
+
+.alerta-pequena .swal2-title {
+    font-family: var(--Font-body) !important;
+    color: var(--Dark-green) !important;
+}
+
+.alerta-pequena .swal2-html-container {
+    font-family: var(--Font-body) !important;
+    color: var(--Midnight-green) !important;
+}
+
+.alerta-pequena .swal2-icon {
+    transform: scale(1.2);
+    margin: 1rem auto !important;
 }

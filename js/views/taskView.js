@@ -5,29 +5,22 @@ import { taskManager } from "../clases/taskManager.js";
 export const gestor = new taskManager();
 
 // * Datos de prueba
-const tarea1 = new Task(
-    1,
-    "Estudiar JavaScript",
-    "Repasar eventos del DOM",
-    "Estudio",
-    "2026-11-06",
-    "Diaria",
-    "completada" // para pruebas
-);
+gestor.agregarTarea({
+    titulo: "Estudiar JavaScript",
+    descripcion: "Repasar eventos del DOM",
+    categoria: "Estudio",
+    fecha: "2026-11-06",
+    frecuencia: "Diaria",
+    estado: "completada" // para pruebas
+});
 
-const tarea2 = new Task(
-    2,
-    "Actualizar portafolio",
-    "Mejorar sección de contacto",
-    "Personal",
-    "2026-11-04",
-    "Semanal"
-);
-
-// * Agregamos las tareas al gestor
-gestor.agregarTarea(tarea1);
-gestor.agregarTarea(tarea2);
-
+gestor.agregarTarea({
+    titulo: "Actualizar portafolio",
+    descripcion: "Mejorar sección de contacto",
+    categoria: "Personal",
+    fecha: "2026-11-04",
+    frecuencia: "Semanal"
+});
 
 // * Referencia al contenedor
 const contenedor = document.getElementById("contenedor-tareas");
@@ -66,7 +59,6 @@ export function renderizarTareas() {
 
                         <button type="button" class="boton-rosa" data-id="${tarea.id}">${textoBoton}</button>
                         <button type="button" class="boton-beige" data-id="${tarea.id}">Editar</button>
-
 
                         <h5 class="card-title mt-3 ${tarea.estado === "completada" ? "texto-completada" : ""}">
                             ${tarea.titulo}

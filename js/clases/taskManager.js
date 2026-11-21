@@ -5,17 +5,31 @@ import { Task } from "./task.js";
 export class taskManager {
 
     // * Se define el constructor de la clase
-    constructor() {
+    constructor(currentId = 0) {
 
         this.tareas = [];
+        this.currentId = currentId;
 
     }
 
     // * Se crea el método para agregar una tarea al gestor
-    agregarTarea(tarea) {
+    agregarTarea(infoTarea) {
 
-        this.tareas.push(tarea);
+        this.currentId++;
 
+        const nuevaTarea = new Task(
+            this.currentId,
+            infoTarea.titulo,
+            infoTarea.descripcion,
+            infoTarea.categoria,
+            infoTarea.fecha,
+            infoTarea.frecuencia,
+            infoTarea.estado,
+        )
+
+        this.tareas.push(nuevaTarea);
+
+        return nuevaTarea;
     }
 
     // * Se crea el método para obtener todas las tareas del gestor
@@ -43,8 +57,8 @@ export class taskManager {
 
         if (tarea) {
             tarea.estado = tarea.estado === "completada"
-            ? (tarea.estaVencida() ? "vencida" : "pendiente")
-            : "completada";
+                ? (tarea.estaVencida() ? "vencida" : "pendiente")
+                : "completada";
         }
 
     }
