@@ -211,38 +211,33 @@
                                         <label for="mensual">MENSUAL</label>
                                     </div>
 
+                                    <div class="d-flex align-items-right gap-2">
+                                        <button type="button" class="boton-rosa">
+                                            <span class="material-symbols-outlined">list</span>
+                                            Ver listado completo
+                                        </button>
+                                    </div>
+
+                                    <div class="d-flex align-items-right gap-2">
+                                        <button type="button" class=" col-12 boton-rosa" data-bs-toggle="modal"
+                                            data-bs-target="#modalNuevaTarea">
+                                            <span class="material-symbols-outlined">add_circle</span>
+                                            Añadir nueva tarea
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <!-- CONTENIDO -->
                                 <div class="row g-3">
 
-                                    <div class="col-12 col-md-8">
+                                    <div class="col-12 col-md-12">
                                         <div class="contenedor h-100">
-                                            <!-- LISTADO DE TAREAS -->
 
-                                            <span>Funcion sin implementar aun, para ver tareas ir #tareas pulsando
-                                                boton</span>
+                                            <div id="resumen-tareas" class="row g-3">
+                                                <!-- LISTADO DE TAREAS DESDE EL JS-->
+                                            </div>
 
                                         </div>
-                                    </div>
-
-                                    <div class="col-12 col-md-4 d-flex flex-column gap-3">
-
-                                        <button type="button" class="boton-beige">
-                                            <span class="material-symbols-outlined">list</span>
-                                            Ver listado completo
-                                        </button>
-
-                                        <button type="button" class="boton-beige">
-                                            <span class="material-symbols-outlined">category</span>
-                                            Añadir categoría
-                                        </button>
-
-                                        <button type="button" class="boton-rosa" data-bs-toggle="modal"
-                                            data-bs-target="#modalNuevaTarea">
-                                            <span class="material-symbols-outlined">add_circle</span>
-                                            Añadir nueva tarea
-                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -455,7 +450,8 @@
                         Cancelar
                     </button>
 
-                    <button type="submit" form="formulario-tarea" class="boton-rosa" data-bs-dismiss="modal" data-bs-dismiss="modal">
+                    <button type="submit" form="formulario-tarea" class="boton-rosa" data-bs-dismiss="modal"
+                        data-bs-dismiss="modal">
                         Guardar
                     </button>
                 </div>
@@ -470,7 +466,7 @@
     <!-- SCRIPT ANCLA PARA LA SPA -->
     <script type="module" src="js/index.js"></script>
     <!-- SWEET ALERT JIJIJIJI -->
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

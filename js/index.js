@@ -1,7 +1,7 @@
 // * Se importan las clases y módulos necesarios
-import { gestor, renderizarTareas } from "./views/taskView.js";
+import { gestor, renderizarTareas, renderizarResumenTareas } from "./views/taskView.js";
 import "./views/calendarView.js"
-import "./taskNew.js";
+import { prepararEdicion } from "./taskNew.js";
 
 import { cargarCategorias } from "./data/categories.js";
 //import { cargarEstados } from "./estados.js";
@@ -67,7 +67,20 @@ contenedorTareas.addEventListener("click", (event) => {
         gestor.completarTarea(tareaId);
 
         renderizarTareas();
+        renderizarResumenTareas();
 
+    }
+
+    // * Editar tarea
+    const botonEditar = event.target.closest(".boton-editar");
+
+    if (botonEditar) {
+
+        const tareaId = Number(botonEditar.dataset.id);
+
+        prepararEdicion(tareaId);
+
+        return;
     }
 
     // * Eliminar tarea
@@ -77,11 +90,16 @@ contenedorTareas.addEventListener("click", (event) => {
 
         gestor.eliminarTarea(tareaId);
 
-        renderizarTareas();
 
     }
+
+    renderizarTareas();
+    renderizarResumenTareas();
 
 });
 
 // * Mostrar vista inicial
 navegar();
+
+renderizarTareas();
+renderizarResumenTareas();

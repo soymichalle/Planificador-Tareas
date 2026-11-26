@@ -5,11 +5,12 @@ import { Task } from "./task.js";
 export class taskManager {
 
     // * Se define el constructor de la clase
-    constructor(currentId = 0) {
+    constructor() {
 
         this.tareas = [];
-        this.currentId = currentId;
-
+        this.currentId = 0;
+        this.cargarTareas();
+        
     }
 
     // * Se crea el método para agregar una tarea al gestor
@@ -28,6 +29,7 @@ export class taskManager {
         )
 
         this.tareas.push(nuevaTarea);
+        this.guardarTareas();
 
         return nuevaTarea;
     }
@@ -44,14 +46,15 @@ export class taskManager {
 
         const nuevasTareas = [];
 
-        for(let tarea of this.tareas) {
+        for (let tarea of this.tareas) {
             if (tarea.id != tareaId) {
                 nuevasTareas.push(tarea);
             }
         }
 
         this.tareas = nuevasTareas;
-        
+        this.guardarTareas();
+
     }
 
     // * Se crea el método para completar una tarea del gestor
@@ -67,6 +70,8 @@ export class taskManager {
                 : "completada";
         }
 
+        this.guardarTareas();
+
     }
 
     // * Se crea el método para filtrar las tareas por frecuencia
@@ -80,5 +85,79 @@ export class taskManager {
             tarea => tarea.frecuencia === frecuencia
         );
 
+    }
+
+    // * Método para editar una tarea
+    editarTarea(tareaId, nuevosDatos) {
+
+        const tarea = this.tareas.find(
+            tarea => tarea.id === tareaId
+        );
+
+        if (!tarea) {
+            return false;
+        }
+
+        tarea.titulo = nuevosDatos.titulo;
+        tarea.descripcion = nuevosDatos.descripcion;
+        tarea.categoria = nuevosDatos.categoria;
+        tarea.fecha = nuevosDatos.fecha;
+        tarea.frecuencia = nuevosDatos.frecuencia;
+
+        this.guardarTareas();
+
+        return true;
+    }
+
+    // * Guardar tareas en localStorage
+    guardarTareas() {
+
+        localStorage.setItem(
+            "planificador_tareas",
+            JSON.stringify({
+                tareas: this.tareas,
+                currentId: this.currentId
+            })
+        );
+
+    }
+
+    // * Recuperar tareas de localStorage
+    cargarTareas() {
+
+        const datosGuardados = localStorage.getItem("planificador_tareas");
+
+        if (!datosGuardados) {
+            return;
+        }
+
+        try {
+
+            const datos = JSON.parse(datosGuardados);
+
+            this.tareas = datos.tareas.map(tarea => {
+
+                return new Task(
+                    tarea.id,
+                    tarea.titulo,
+                    tarea.descripcion,
+                    tarea.categoria,
+                    tarea.fecha,
+                    tarea.frecuencia,
+                    tarea.estado
+                );
+
+            });
+
+            this.currentId = datos.currentId;
+
+        } catch (error) {
+
+            console.error("Error al recuperar las tareas:", error);
+
+            this.tareas = [];
+            this.currentId = 0;
+
+        }
     }
 }
