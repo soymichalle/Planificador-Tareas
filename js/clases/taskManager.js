@@ -10,7 +10,7 @@ export class taskManager {
         this.tareas = [];
         this.currentId = 0;
         this.cargarTareas();
-        
+
     }
 
     // * Se crea el método para agregar una tarea al gestor
@@ -41,6 +41,24 @@ export class taskManager {
 
     }
 
+    // * Método para obtener una tarea por su ID
+    obtenerTareaPorId(idTarea) {
+
+        let encontrada;
+
+        for (let tarea of this.tareas) {
+
+            if (tarea.id === idTarea) {
+                encontrada = tarea;
+                break;
+            }
+
+        }
+
+        return encontrada;
+
+    }
+
     // * Se crea el método para eliminar una tarea del gestor
     eliminarTarea(tareaId) {
 
@@ -60,9 +78,7 @@ export class taskManager {
     // * Se crea el método para completar una tarea del gestor
     completarTarea(id) {
 
-        const tarea = this.tareas.find(
-            tarea => tarea.id === id
-        );
+        const tarea = this.obtenerTareaPorId(id);
 
         if (tarea) {
             tarea.estado = tarea.estado === "completada"

@@ -31,9 +31,9 @@ if (!localStorage.getItem("planificador_tareas")) {
 const contenedor = document.getElementById("contenedor-tareas");
 
 // * Renderizar cards en vista tareas
-export function renderizarTareas() {
+export function renderizarTareas(tareasAMostrar = gestor.obtenerTareas()) {
 
-    const tareas = gestor.obtenerTareas();
+    const tareas = tareasAMostrar;
     const contenedor = document.getElementById("contenedor-tareas");
 
     if (gestor.tareas.length === 0) {
@@ -107,11 +107,12 @@ export function renderizarTareas() {
 }
 
 // * Renderizar resumen de tareas en inicio
-export function renderizarResumenTareas() {
+export function renderizarResumenTareas(frecuencia = "todas") {
 
     const contenedorResumen = document.getElementById("resumen-tareas");
 
     const tareasPendientes = gestor.obtenerTareas()
+        .filter(tarea => frecuencia === "todas" || tarea.frecuencia === frecuencia)
         .filter(tarea => tarea.estado !== "completada")
         .slice(0, 3);
 

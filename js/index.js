@@ -2,6 +2,7 @@
 import { gestor, renderizarTareas, renderizarResumenTareas } from "./views/taskView.js";
 import "./views/calendarView.js"
 import { prepararEdicion } from "./taskNew.js";
+import { obtenerFraseDelDia } from "./views/phraseView.js";
 
 import { cargarCategorias } from "./data/categories.js";
 //import { cargarEstados } from "./estados.js";
@@ -18,6 +19,16 @@ let tareas = [];
 
 const enlaces = document.querySelectorAll(".sidebar-link");
 const vistas = document.querySelectorAll(".vista");
+const contenedorTareas = document.getElementById("contenedor-tareas");
+const filtroFrecuencia = document.getElementById("filtroFrecuencia");
+const inicio = document.getElementById("inicio");
+
+const frecuencias = {
+    "btn-todas": "todas",
+    "btn-dia": "Diaria",
+    "btn-semana": "Semanal",
+    "btn-mes": "Mensual"
+};
 
 // * Función para mostrar u ocultar vistas
 function navegar() {
@@ -52,9 +63,7 @@ function navegar() {
 // * Detectar navegación
 window.addEventListener("hashchange", navegar);
 
-// * Listener para gestionar las tareas
-const contenedorTareas = document.getElementById("contenedor-tareas");
-
+// * Evento para gestionar las cards de tareas
 contenedorTareas.addEventListener("click", (event) => {
 
     // * Marcar y desmarcar tarea
@@ -86,17 +95,66 @@ contenedorTareas.addEventListener("click", (event) => {
     // * Eliminar tarea
     if (event.target.classList.contains("boton-rojo")) {
 
-        const tareaId = Number(event.target.dataset.id);
+        const botonEliminar = event.target.closest(".boton-rojo");
 
-        gestor.eliminarTarea(tareaId);
-
-
+        if (botonEliminar) {
+            const tareaId = Number(event.target.dataset.id);
+            gestor.eliminarTarea(tareaId);
+        }
     }
 
     renderizarTareas();
     renderizarResumenTareas();
 
 });
+
+// * Evento filtro de frecuencia en vista de tareas
+filtroFrecuencia.addEventListener("click", (e) => {
+
+    const boton = e.target.closest("button");
+
+    if (!boton) return;
+
+    const claseBoton = Object.keys(frecuencias).find(clase =>
+        boton.classList.contains(clase)
+    );
+
+    if (!claseBoton) return;
+    
+    // * Actualizar estilos de los botones
+    const botones = filtroFrecuencia.querySelectorAll("button");
+
+    botones.forEach(boton => {
+        boton.classList.remove("boton-rosa");
+        boton.classList.add("boton-beige");
+    });
+
+    boton.classList.remove("boton-beige");
+    boton.classList.add("boton-rosa");
+
+    const frecuencia = frecuencias[claseBoton];
+    const tareasFiltradas = gestor.filtrarPorFrecuencia(frecuencia);
+
+    renderizarTareas(tareasFiltradas);
+
+});
+
+// * Evento filtro de frecuencia en vista inicio
+inicio.addEventListener("change", (e) => {
+    if (!e.target.matches('input[name="frecuencia"]')) return;
+
+    const frecuenciasInicio = {
+        diaria: "Diaria",
+        semanal: "Semanal",
+        mensual: "Mensual"
+    };
+
+    const frecuencia = frecuenciasInicio[e.target.id];
+
+    renderizarResumenTareas(frecuencia);
+});
+
+obtenerFraseDelDia();
 
 // * Mostrar vista inicial
 navegar();

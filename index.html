@@ -133,8 +133,10 @@
                         <div class="contenedor h-100">
                             <div class="m-2">
                                 <h1>Frase del día</h1>
-                                <p>Las oportunidades no aparecen,
-                                    las creas.</p>
+                                <p id="texto-frase">
+                                    Cargando frase...
+                                </p>
+                                <small id="autor-frase"></small>
                             </div>
                         </div>
                     </div>
@@ -309,21 +311,21 @@
 
                     <div class="row align-items-center g-3 py-3">
                         <div class="col-12 col-md-8">
-                            <div class="d-flex gap-2 px-2">
+                            <div class="d-flex gap-2 px-2" id="filtroFrecuencia">
 
-                                <button type="button" class="boton-rosa">
+                                <button type="button" class="boton-rosa btn-todas">
                                     Todas
                                 </button>
 
-                                <button type="button" class="boton-beige">
+                                <button type="button" class="boton-beige btn-dia">
                                     Diarias
                                 </button>
 
-                                <button type="button" class="boton-beige">
+                                <button type="button" class="boton-beige btn-semana">
                                     Semanales
                                 </button>
 
-                                <button type="button" class="boton-beige">
+                                <button type="button" class="boton-beige btn-mes">
                                     Mensuales
                                 </button>
 
