@@ -5,9 +5,6 @@ import { gestor, renderizarTareas } from "./views/taskView.js";
 // * Se obtiene el formulario
 const formulario = document.querySelector("#formulario-tarea");
 
-// * Se obtiene la alerta
-const alerta = document.querySelector("#alerta-validacion");
-
 // * Función para validar los campos del formulario
 function validFormFieldInput(data) {
 
@@ -31,6 +28,8 @@ function validFormFieldInput(data) {
     if (!data.frecuencia) {
         return notificarError("Oh-uh! Parece que no has seleccionado una frecuencia. Por favor, verifica");
     }
+
+    return true;
 
 }
 

@@ -57,8 +57,9 @@ export function renderizarTareas() {
                     <span class="badge rounded-pill text-bg-${colorEstado}">${estado}</span>
                     </div>
 
-                        <button type="button" class="boton-rosa" data-id="${tarea.id}">${textoBoton}</button>
+                        <button type="button" class="boton-rosa boton-completar" data-id="${tarea.id}">${textoBoton}</button>
                         <button type="button" class="boton-beige" data-id="${tarea.id}">Editar</button>
+                        <button type="button" class="boton-rojo" data-id="${tarea.id}">Eliminar</button>
 
                         <h5 class="card-title mt-3 ${tarea.estado === "completada" ? "texto-completada" : ""}">
                             ${tarea.titulo}

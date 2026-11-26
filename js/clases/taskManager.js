@@ -40,12 +40,18 @@ export class taskManager {
     }
 
     // * Se crea el método para eliminar una tarea del gestor
-    eliminarTarea(id) {
+    eliminarTarea(tareaId) {
 
-        this.tareas = this.tareas.filter(
-            tarea => tarea.id !== id
-        );
+        const nuevasTareas = [];
 
+        for(let tarea of this.tareas) {
+            if (tarea.id != tareaId) {
+                nuevasTareas.push(tarea);
+            }
+        }
+
+        this.tareas = nuevasTareas;
+        
     }
 
     // * Se crea el método para completar una tarea del gestor

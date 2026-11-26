@@ -178,7 +178,8 @@ input {
 
 /* * BOTONES */
 .boton-rosa,
-.boton-beige {
+.boton-beige,
+.boton-rojo {
     border-radius: 1.25rem;
     border: none;
 
@@ -193,13 +194,19 @@ input {
     color: var(--Beige);
 }
 
+.boton-rojo {
+    background-color: rgb(230, 76, 76);
+    color: var(--Beige);
+}
+
 .boton-beige {
     background-color: var(--Beige);
     color: var(--Rosy-brown);
 }
 
 .boton-rosa:hover,
-.boton-beige:hover {
+.boton-beige:hover,
+.boton-rojo:hover {
     transform: scale(1.03);
 }
 

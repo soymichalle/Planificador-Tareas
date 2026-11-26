@@ -1,5 +1,5 @@
 // * Se importan las clases y módulos necesarios
-import "./views/taskView.js";
+import { gestor, renderizarTareas } from "./views/taskView.js";
 import "./views/calendarView.js"
 import "./taskNew.js";
 
@@ -47,8 +47,41 @@ function navegar() {
 
 }
 
+// * Eventos
+
 // * Detectar navegación
 window.addEventListener("hashchange", navegar);
+
+// * Listener para gestionar las tareas
+const contenedorTareas = document.getElementById("contenedor-tareas");
+
+contenedorTareas.addEventListener("click", (event) => {
+
+    // * Marcar y desmarcar tarea
+    const botonCompletar = event.target.closest(".boton-completar");
+
+    if (botonCompletar) {
+
+        const tareaId = Number(botonCompletar.dataset.id);
+
+        gestor.completarTarea(tareaId);
+
+        renderizarTareas();
+
+    }
+
+    // * Eliminar tarea
+    if (event.target.classList.contains("boton-rojo")) {
+
+        const tareaId = Number(event.target.dataset.id);
+
+        gestor.eliminarTarea(tareaId);
+
+        renderizarTareas();
+
+    }
+
+});
 
 // * Mostrar vista inicial
 navegar();
